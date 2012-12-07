@@ -14,8 +14,8 @@ Step 1: Install vagrant box:
 
    Then add to Vagrantfile:
 
-  config.vm.box = "opscode-ubuntu-12.04"
-  config.vm.box_url = "https://opscode-vm.s3.amazonaws.com/vagrant/boxes/opscode-ubuntu-12.04.box" 
+    config.vm.box = "opscode-ubuntu-12.04"
+    config.vm.box_url = "https://opscode-vm.s3.amazonaws.com/vagrant/boxes/opscode-ubuntu-12.04.box" 
 
     
 Step 2: Install Cheffile
@@ -30,8 +30,9 @@ Step 3: Add cookbooks
 
 
 Edit Cheffile:
-  cookbook 'apt'
-  cookbook 'neo4j-server', :git => 'http://github.com/michaelklishin/neo4j-server-chef-cookbook'
+
+    cookbook 'apt'
+    cookbook 'neo4j-server', :git => 'http://github.com/michaelklishin/neo4j-server-chef-cookbook'
 
 
 Step 4: Download cookbooks
@@ -45,10 +46,6 @@ Step 5: Prepare provision VM
 
 
   Vagrantfile
-
-    chef.cookbooks_path = "cookbooks"
-    # chef.roles_path = "../my-recipes/roles"
-    # chef.data_bags_path = "../my-recipes/data_bags"
     
     config.vm.provision :chef_solo do |chef|
       chef.cookbooks_path = "cookbooks"
